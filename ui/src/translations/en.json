@@ -1193,6 +1193,24 @@
         "loading_execution": "Something went wrong while loading the execution"
     },
     "debug": "Debug",
-    "default": "Default"
+    "default": "Default",
+
+    "about this blueprint": "About this Blueprint",
+    "plugins text": "Plugins",
+    "running": "RUNNING",
+    "deleted:": "Deleted:",
+    "years": "Years",
+    "months": "Months",
+    "weeks": "Weeks",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "or input custom duration": "or input custom duration:",
+    "fold all multi lines": "Fold All Multi Lines",
+    "task_id_exists": "Task Id already exist",
+    "task_id_message": "Task Id ${existingTask} already exist in the flow.",
+    "trigger_id_exists": "Trigger Id already exist",
+    "trigger_id_message": "Trigger Id ${existingTrigger} already exist in the flow."
   }
 }

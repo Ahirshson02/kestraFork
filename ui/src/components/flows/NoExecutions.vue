@@ -6,7 +6,7 @@
                     <img :src="logo" alt="Kestra" class="img-fluid" width="150px">
                     <img :src="logoDark" alt="Kestra" class="img-fluid img-fluid-dark" width="150px">
                     <h5 class="section-1-title mt-4">
-                        {{ $t("no-executions-view.title") }} <span style="color: var(--ks-content-link)">Kestra</span>
+                        {{ $t("no-executions-view.title") }} <span style="color: var(--ks-content-link)">{{ $t("kestra") }}</span>
                     </h5>
                     <p class="section-1-desc">
                         {{ $t("no-executions-view.sub_title") }}
