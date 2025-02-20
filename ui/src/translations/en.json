@@ -1230,6 +1230,11 @@
     "task_id_exists": "Task Id already exist",
     "task_id_message": "Task Id ${existingTask} already exist in the flow.",
     "trigger_id_exists": "Trigger Id already exist",
-    "trigger_id_message": "Trigger Id ${existingTrigger} already exist in the flow."
+    "trigger_id_message": "Trigger Id ${existingTrigger} already exist in the flow.",
+    "watch": "Watch",
+    "watch_video": "Watch Video",
+    "runners": "Runners",
+    "select": "Select your {{section}}",
+    "for flow": "for flow" 
   }
 }

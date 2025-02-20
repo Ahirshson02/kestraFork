@@ -17,7 +17,7 @@
                         :icons="icons"
                     />
                     <h4 class="mb-0">
-                        {{ pluginName }}
+                        {{ $t( 'plugins.' + pluginName) || pluginName }}
                     </h4>
                 </div>
                 <Suspense v-loading="isLoading">
