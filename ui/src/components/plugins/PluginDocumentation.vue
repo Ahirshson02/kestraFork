@@ -9,7 +9,7 @@
                     :icons="icons"
                 />
                 <h4 class="mb-0">
-                    {{ pluginName }}
+                    {{ $t("plugins." + pluginName) }}
                 </h4>
             </div>
             <Suspense>
