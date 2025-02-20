@@ -1226,7 +1226,7 @@
     "minutes": "Minutes",
     "seconds": "Seconds",
     "or input custom duration": "or input custom duration:",
-    "fold all multi lines": "Fold All Multi Lines",
+    "fold_all_multi_lines": "Fold All Multi Lines",
     "task_id_exists": "Task Id already exist",
     "task_id_message": "Task Id ${existingTask} already exist in the flow.",
     "trigger_id_exists": "Trigger Id already exist",

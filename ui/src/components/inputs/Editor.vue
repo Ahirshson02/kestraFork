@@ -329,7 +329,7 @@
                 if (this.original === undefined && this.navbar && this.fullHeight) {
                     this.editor.addAction({
                         id: "fold-multiline",
-                        label: this.$t("fold all multi lines"),
+                        label: this.$t("fold_all_multi_lines"),
                         keybindings: [KeyCode.F10],
                         contextMenuGroupId: "fold",
                         contextMenuOrder: 1.5,

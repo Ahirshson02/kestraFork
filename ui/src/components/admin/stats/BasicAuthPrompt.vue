@@ -1,8 +1,7 @@
 <template>
     <div class="d-flex" v-if="!configs.isBasicAuthEnabled">
         <el-text>
-            {{ $t('data_not_protected_message') }}
-            <strong>{{ $t('data_not_protected_bold_message') }}</strong>
+            {{ $t('data_not_protected_message') }}  <strong>{{ $t('data_not_protected_bold_message') }}</strong>
         </el-text>
         <el-button class="ms-auto" @click="promptForCredentials">
             <b>{{ $t('activate_basic') }}</b>
