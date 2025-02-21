@@ -1,7 +1,5 @@
 {
-  "en": {
-    "data_not_protected": "Your data is not protected. Don't loose it. <b>Enable our free security features or try our paid offering.</b>",
-    
+  "en": {   
     "id": "Id",
     "type": "Type",
     "ok": "OK",
@@ -1202,9 +1200,8 @@
     },
     "debug": "Debug",
     "default": "Default",
-    "data_not_protected_message": "data is not protected. Don't loose it.",
-    "data_not_protected_message_bold": "Enable our free security features or try our paid offering.",
-    "activate_basic": "Activate Basic Authentication",
+    "data_not_protected": "Your data is not protected. Don't loose it. <b>Enable our free security features or try our paid offering.</b>",
+    "activate_basic_auth": "Activate Basic Authentication",
     "dark_version": "Dark version",
     "use_dark_background": "Use this version when working on a dark background to ensure our name remains readable.",
     "light_version": "Light version",
