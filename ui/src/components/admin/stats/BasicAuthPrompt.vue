@@ -9,7 +9,7 @@
 
         <el-dialog v-if="promptOAuthCredentials" v-model="promptOAuthCredentials" destroy-on-close :append-to-body="true">
             <template #header>
-                <span>{{ $t('configure basic auth') }}</span>
+                <span v-html="$t('configure basic auth')" />
             </template>
             <el-form label-position="top" :rules="rules" :model="form" ref="form" @submit.prevent="false">
                 <el-form-item
