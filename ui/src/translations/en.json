@@ -1,5 +1,5 @@
 {
-  "en": {   
+  "en": {
     "id": "Id",
     "type": "Type",
     "ok": "OK",
@@ -1208,13 +1208,10 @@
     "light_background": "This is the preferred option when working with a light background.",
     "monogram": "Monogram",
     "wordmark_colors": "The wordmark colors adapt based on the background, while the icon remains without a background when placed on a dark background.",
-    "download_logos": "Download logo Pack",
+    "download_logos": "Download Logo Pack",
     "this_task_has": "This task has",
-    "attempts.": "attempts",
-    "running": "RUNNING",
-    "about this blueprint": "About this Blueprint",
-    "plugins text": "Plugins",
-    "deleted:": "Deleted:",
+    "about_this_blueprint": "About this blueprint",
+    "deleted_label": "Deleted",
     "years": "Years",
     "months": "Months",
     "weeks": "Weeks",
@@ -1222,16 +1219,19 @@
     "hours": "Hours",
     "minutes": "Minutes",
     "seconds": "Seconds",
-    "or input custom duration": "or input custom duration:",
+    "input_custom_duration": "or input custom duration:",
     "fold_all_multi_lines": "Fold All Multi Lines",
     "task_id_exists": "Task Id already exist",
     "task_id_message": "Task Id ${existingTask} already exist in the flow.",
     "trigger_id_exists": "Trigger Id already exist",
     "trigger_id_message": "Trigger Id ${existingTrigger} already exist in the flow.",
     "watch": "Watch",
+    "learn_more": "Learn more",
     "watch_video": "Watch Video",
     "runners": "Runners",
     "select": "Select your {{section}}",
-    "for flow": "for flow" 
+    "for flow": "for flow",
+    "confirm": "Confirm",
+    "task_runners": "Task Runners"
   }
 }

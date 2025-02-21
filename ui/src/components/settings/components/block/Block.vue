@@ -1,7 +1,7 @@
 <template>
     <section>
         <h1 class="heading">
-            <el-popover v-if="note" :content="$t('note')" trigger="hover" :width="400" class="info">
+            <el-popover v-if="note" :content="note" trigger="hover" :width="400" class="info">
                 <template #reference>
                     <InformationOutline />
                 </template>

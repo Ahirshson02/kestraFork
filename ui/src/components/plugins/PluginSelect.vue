@@ -14,7 +14,7 @@
             <span class="options">
                 <task-icon :cls="item" :only-icon="true" :icons="icons" />
                 <span>
-                    {{ $t(item) }}
+                    {{ item }}
                 </span>
             </span>
         </el-option>

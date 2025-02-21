@@ -71,9 +71,9 @@
     </div>
     <div>
         <el-text size="small" :type="durationIssue ? 'danger': ''">
-            {{ durationIssue ?? $t('or input custom duration') }}
+            {{ durationIssue ?? $t('input_custom_duration') }}
         </el-text>
-        <el-input type="text" id="customDuration" v-model="customDuration" @input="parseDuration" placeholder="$t('custom duration')" />
+        <el-input type="text" id="customDuration" v-model="customDuration" @input="parseDuration" :placeholder="$t('datepicker.custom duration')" />
     </div>
 </template>
 
