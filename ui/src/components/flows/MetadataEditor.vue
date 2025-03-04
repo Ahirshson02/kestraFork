@@ -39,7 +39,7 @@
         </el-form-item>
         <el-form-item>
             <template #label>
-                <code>{{ $t("retry") }}</code>
+                <code>retry</code>
             </template>
             <editor
                 :model-value="newMetadata.retry"

@@ -7,7 +7,7 @@
         :xl="layout.xl"
         class="column"
     >
-        <p v-if="label" v-text="$t(label)" class="label" />
+        <p v-if="label" v-text="label" class="label" />
         <slot />
     </el-col>
 </template>

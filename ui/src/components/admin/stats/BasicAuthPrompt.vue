@@ -1,15 +1,15 @@
 <template>
     <div class="d-flex" v-if="!configs.isBasicAuthEnabled">
         <el-text>
-            {{ $t('data_not_protected_message') }}  <strong>{{ $t('data_not_protected_bold_message') }}</strong>
+            <span v-html="$t('data_not_protected')" />
         </el-text>
         <el-button class="ms-auto" @click="promptForCredentials">
-            <b>{{ $t('activate_basic') }}</b>
+            <b>{{ $t('activate_basic_auth') }}</b>
         </el-button>
 
         <el-dialog v-if="promptOAuthCredentials" v-model="promptOAuthCredentials" destroy-on-close :append-to-body="true">
             <template #header>
-                <span>{{ $t('configure basic auth') }}</span>
+                <span v-html="$t('configure basic auth')" />
             </template>
             <el-form label-position="top" :rules="rules" :model="form" ref="form" @submit.prevent="false">
                 <el-form-item

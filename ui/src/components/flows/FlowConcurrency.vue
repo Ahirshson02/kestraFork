@@ -4,7 +4,7 @@
             <el-card class="mb-3">
                 <div class="row mb-3">
                     <span class="col d-flex align-items-center">
-                        <h5 class="m-3">{{ $t('running') }}</h5> {{ runningCount }}/{{ flow.concurrency.limit }} {{ $t('active-slots') }}
+                        <h5 class="m-3">RUNNING</h5> {{ runningCount }}/{{ flow.concurrency.limit }} {{ $t('active-slots') }}
                     </span>
                     <span class="col d-flex justify-content-end align-items-center">
                         {{ $t('behavior') }}: <status class="mx-2" :status="flow.concurrency.behavior" size="small" />

@@ -870,7 +870,7 @@
             store.dispatch("core/showMessage", {
                 variant: "error",
                 title: this.$t("trigger_id_exists"),
-                message: this.$t("trigger_id_message", {existingTask}),
+                message: this.$t("trigger_id_message", {existingTrigger: existingTask}),
             });
             return;
         }

@@ -47,8 +47,7 @@
                             </li>
                         </ul>
                         <p v-if="plugin?.taskRunners.filter(t => t.toLowerCase().includes(searchInput)).length > 0" class="mb-0">
-                            {{ $t('task') }}
-                            {{ $t('Runners') }}
+                            {{ $t('task_runners') }}
                         </p>
                         <ul>
                             <li

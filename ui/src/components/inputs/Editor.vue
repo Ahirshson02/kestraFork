@@ -289,7 +289,7 @@
 
                 this.editor.addAction({
                     id: "kestra-execute",
-                    label: this.$t("execute the flow"),
+                    label: this.$t("execute flow behaviour"),
                     keybindings: [KeyMod.CtrlCmd | KeyCode.KeyE],
                     contextMenuGroupId: "navigation",
                     contextMenuOrder: 1.5,
