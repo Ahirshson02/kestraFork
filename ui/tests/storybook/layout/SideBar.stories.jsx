@@ -67,6 +67,14 @@ Default.args = {
         },
     },
     {
+      title: "Coconuts",
+      href: "/flows",
+      icon: {
+        element: shallowRef(ContentCopy),
+        class: "menu-icon"
+      },
+  },
+    {
         title: "Executions",
         href: "/executions",
         icon: {

@@ -14,6 +14,7 @@
             <el-button @click="collapsed = onToggleCollapse(!collapsed)" class="collapseButton" :size="collapsed ? 'small':undefined">
                 <chevron-right v-if="collapsed" />
                 <chevron-left v-else />
+                <span v-if="!collapsed">COCONUTS</span>
             </el-button>
             <div class="logo">
                 <router-link :to="{name: 'home'}">
@@ -50,7 +51,6 @@
 
     import Environment from "./Environment.vue";
     import BookmarkLinkList from "./BookmarkLinkList.vue";
-
 
     const props = defineProps({
         generateMenu: {

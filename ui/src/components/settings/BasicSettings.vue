@@ -6,7 +6,7 @@
             </el-button>
         </template>
     </top-nav-bar>
-
+    <!-- ADAM-->
     <Wrapper>
         <Block :heading="$t('settings.blocks.configuration.label')">
             <template #content>
@@ -132,6 +132,22 @@
                             :min="1"
                             :max="50"
                         />
+                    </Column>
+                    <Column :label="Hello">
+                        <!--ADD PDF STUFF HERE-ISH-->
+                        <el-button @click="triggerFileInput">
+                            Upload PDF
+                        </el-button>
+                        <input
+                            type="file"
+                            ref="fileInput"
+                            accept="application/pdf"
+                            style="display: none"
+                            @change="handleFileUpload"
+                        >
+                        <p v-if="fileName">
+                            Selected File: {{ fileName }}
+                        </p>
                     </Column>
                 </Row>
 
@@ -265,6 +281,7 @@
         },
         data() {
             return {
+                fileName: null,
                 pendingSettings: {
                     defaultNamespace: undefined,
                     defaultLogLevel: undefined,
@@ -331,6 +348,18 @@
             this.pendingSettings.logsFontSize = parseInt(localStorage.getItem("logsFontSize")) || 12;
         },
         methods: {
+            //fileupload function here
+            triggerFileInput() {
+                this.$refs.fileInput.click(); // Programmatically open file selector
+            },
+            handleFileUpload(event) {
+                const file = event.target.files[0];
+                if (file) {
+                    this.fileName = file.name; // Display selected file name
+                    console.log("Uploaded PDF:", file);
+                }
+            },
+            //create API call method here
             onNamespaceSelect(value) {
                 this.pendingSettings.defaultNamespace = value;
             },
