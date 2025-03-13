@@ -5,6 +5,7 @@ import DemoTenants from "../components/demo/Tenants.vue"
 import DemoAuditLogs from "../components/demo/AuditLogs.vue"
 import DemoInstance from "../components/demo/Instance.vue"
 import DemoApps from "../components/demo/Apps.vue"
+import Pets from "../components/settings/Pets.vue"
 
 export default [
     //Initial
@@ -68,4 +69,9 @@ export default [
     {name: "admin/tenants/list", path: "/:tenant?/admin/tenants", component: DemoTenants},
     {name: "admin/auditlogs/list", path: "/:tenant?/admin/auditlogs", component: DemoAuditLogs},
     {name: "admin/instance", path: "/:tenant?/admin/instance", component: DemoInstance},
+     {
+        path: '/pets',
+        name: 'Pets',
+        component: Pets
+      }
 ];

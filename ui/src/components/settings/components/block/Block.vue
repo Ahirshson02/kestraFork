@@ -18,7 +18,7 @@
 
     defineProps({
         heading: {type: String, default: ""},
-        note: {type: String, default: undefined},
+        note: {type: [String, Function], default: undefined},
         last: {type: Boolean, default: false},
     });
 </script>

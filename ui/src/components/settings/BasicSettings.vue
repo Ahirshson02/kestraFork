@@ -48,6 +48,9 @@
                                 :value="item.value"
                             />
                         </el-select>
+                        <el-image :src="imgUrl"/>
+                            
+                        
                     </Column>
 
                     <Column :label="$t('settings.blocks.configuration.fields.execute_flow')">
@@ -77,6 +80,10 @@
 
         <Block :heading="$t('settings.blocks.theme.label')">
             <template #content>
+                <div>
+                    <!-- clickable info icon -->
+                    <font-awesome-icon :icon="['fasl', 'circle-info']" @click="goToAnotherPage" class="clickable-info" />
+                </div>
                 <Row>
                     <Column :label="$t('settings.blocks.theme.fields.theme')">
                         <el-select :model-value="pendingSettings.theme" @update:model-value="onTheme">
@@ -135,8 +142,12 @@
                     </Column>
                     <Column :label="Hello">
                         <!--ADD PDF STUFF HERE-ISH-->
-                        <el-button @click="triggerFileInput">
-                            Upload PDF
+                        <div>
+                            <label for="fileURL"> Enter PDF URL</label>
+                            <input type="text" id="fileURL" v-model="fileURL" />
+                        </div> 
+                        <el-button @click="getDog">
+                            Convert to Text
                         </el-button>
                         <input
                             type="file"
@@ -258,6 +269,11 @@
     import Block from "./components/block/Block.vue"
     import Row from "./components/block/Row.vue"
     import Column from "./components/block/Column.vue"
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+    import { fas } from '@fortawesome/free-solid-svg-icons';
+    import { library } from '@fortawesome/fontawesome-svg-core';
+    
+    library.add(fas);
 
     export const DATE_FORMAT_STORAGE_KEY = "dateFormat";
     export const TIMEZONE_STORAGE_KEY = "timezone";
@@ -271,7 +287,8 @@
             Wrapper,
             Block,
             Row,
-            Column
+            Column,
+            FontAwesomeIcon
         },
         props: {
             allowDefaultNamespace: {
@@ -282,6 +299,8 @@
         data() {
             return {
                 fileName: null,
+                imgUrl: "",
+                fileURL: "",
                 pendingSettings: {
                     defaultNamespace: undefined,
                     defaultLogLevel: undefined,
@@ -359,7 +378,60 @@
                     console.log("Uploaded PDF:", file);
                 }
             },
+            goToAnotherPage() {
+            // Use Vue Router to navigate to the target page
+            this.$router.push("/pets");
+        },
+ 
+
             //create API call method here
+
+            async getCat(){
+                const headers = new Headers({
+                "Content-Type": "application/json",
+                "x-api-key": "DEMO-API-KEY"
+                });
+
+                var requestOptions = {
+                method: 'GET',
+                headers: headers,
+                redirect: 'follow'
+                };
+                try{
+                    const response = await fetch("https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=1", requestOptions)
+                    const data = await response.json();
+                    const cat = data[0];
+                    console.log(cat.url);
+                    console.log("test'");
+                    this.imgUrl = cat.url;
+                    
+                }
+                catch(error){
+                    console.error('Error fetching cat data:', error);
+                }
+            },
+            async getDog(){
+                const headers = new Headers({
+                "Content-Type": "application/json",
+                "x-api-key": "DEMO-API-KEY"
+                });
+
+                var requestOptions = {
+                method: 'GET',
+                headers: headers,
+                redirect: 'follow'
+                };
+                try{
+                    const response = await fetch("https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=1", requestOptions)
+                    const data = await response.json();
+                    const dog = data[0];
+                    this.imgUrl = dog.url;
+                }
+                catch(error){
+                    console.error('Error fetching cat data:', error);
+                }
+            },
+
             onNamespaceSelect(value) {
                 this.pendingSettings.defaultNamespace = value;
             },
@@ -632,4 +704,9 @@
             background: none !important;
         }
     }
+    .clickable-info {
+  font-size: 20px;  /* Adjust size if needed */
+  color: #000000;   /* Match the color of your info icon */
+  cursor: pointer;  /* Ensure it's clickable */
+}
 </style>
