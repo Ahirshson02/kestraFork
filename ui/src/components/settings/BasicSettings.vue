@@ -11,12 +11,23 @@
         <Block :heading="$t('settings.blocks.configuration.label')">
             <template #content>
                 <Row>
-                    <Column v-if="allowDefaultNamespace" :label="$t('settings.blocks.configuration.fields.default_namespace')">
-                        <namespace-select data-type="flow" :value="pendingSettings.defaultNamespace" @update:model-value="onNamespaceSelect" />
+                    <Column
+                        v-if="allowDefaultNamespace"
+                        :label="$t('settings.blocks.configuration.fields.default_namespace')"
+                    >
+                        <namespace-select
+                            data-type="flow"
+                            :value="pendingSettings.defaultNamespace"
+                            @update:model-value="onNamespaceSelect"
+                        />
                     </Column>
 
                     <Column :label="$t('settings.blocks.configuration.fields.log_level')">
-                        <log-level-selector clearable :value="pendingSettings.defaultLogLevel" @update:model-value="onLevelChange" />
+                        <log-level-selector
+                            clearable
+                            :value="pendingSettings.defaultLogLevel"
+                            @update:model-value="onLevelChange"
+                        />
                     </Column>
 
                     <Column :label="$t('settings.blocks.configuration.fields.log_display')">
@@ -48,13 +59,14 @@
                                 :value="item.value"
                             />
                         </el-select>
-                        <el-image :src="imgUrl"/>
-                            
-                        
+                        <el-image :src="imgUrl" />
                     </Column>
 
                     <Column :label="$t('settings.blocks.configuration.fields.execute_flow')">
-                        <el-select :model-value="pendingSettings.executeFlowBehaviour" @update:model-value="onExecuteFlowBehaviourChange">
+                        <el-select
+                            :model-value="pendingSettings.executeFlowBehaviour"
+                            @update:model-value="onExecuteFlowBehaviourChange"
+                        >
                             <el-option
                                 v-for="item in Object.values(executeFlowBehaviours)"
                                 :key="item"
@@ -65,7 +77,10 @@
                     </Column>
 
                     <Column :label="$t('settings.blocks.configuration.fields.execute_default_tab')">
-                        <el-select :model-value="pendingSettings.executeDefaultTab" @update:model-value="onExecuteDefaultTabChange">
+                        <el-select
+                            :model-value="pendingSettings.executeDefaultTab"
+                            @update:model-value="onExecuteDefaultTabChange"
+                        >
                             <el-option
                                 v-for="item in executeDefaultTabOptions"
                                 :key="item.value"
@@ -140,31 +155,18 @@
                             :max="50"
                         />
                     </Column>
-                    <Column :label="Hello">
-                        <!--ADD PDF STUFF HERE-ISH-->
-                        <div>
-                            <label for="fileURL"> Enter PDF URL</label>
-                            <input type="text" id="fileURL" v-model="fileURL" />
-                        </div> 
-                        <el-button @click="getDog">
-                            Convert to Text
-                        </el-button>
-                        <input
-                            type="file"
-                            ref="fileInput"
-                            accept="application/pdf"
-                            style="display: none"
-                            @change="handleFileUpload"
-                        >
-                        <p v-if="fileName">
-                            Selected File: {{ fileName }}
-                        </p>
-                    </Column>
                 </Row>
 
                 <Row>
-                    <Column :overrides="{sm: 24, md: 24, lg: 24, xl: 24}" :label="$t('settings.blocks.theme.fields.editor_folding_stratgy')">
-                        <el-switch :aria-label="$t('Fold auto')" :model-value="pendingSettings.autofoldTextEditor" @update:model-value="onAutofoldTextEditor" />
+                    <Column
+                        :overrides="{sm: 24, md: 24, lg: 24, xl: 24}"
+                        :label="$t('settings.blocks.theme.fields.editor_folding_stratgy')"
+                    >
+                        <el-switch
+                            :aria-label="$t('Fold auto')"
+                            :model-value="pendingSettings.autofoldTextEditor"
+                            @update:model-value="onAutofoldTextEditor"
+                        />
                     </Column>
                 </Row>
 
@@ -181,11 +183,7 @@
                     </Column>
 
                     <Column :label="$t('settings.blocks.theme.fields.environment_color')">
-                        <el-color-picker
-                            v-model="pendingSettings.envColor"
-                            @change="onEnvColorChange"
-                            show-alpha
-                        />
+                        <el-color-picker v-model="pendingSettings.envColor" @change="onEnvColorChange" show-alpha />
                     </Column>
                 </Row>
             </template>
@@ -217,7 +215,11 @@
                     </Column>
 
                     <Column :label="$t('settings.blocks.localization.fields.date_format')">
-                        <el-select :model-value="pendingSettings.dateFormat" @update:model-value="onDateFormat" :key="localeKey">
+                        <el-select
+                            :model-value="pendingSettings.dateFormat"
+                            @update:model-value="onDateFormat"
+                            :key="localeKey"
+                        >
                             <el-option
                                 v-for="item in dateFormats"
                                 :key="pendingSettings.timezone + item.value"
@@ -239,7 +241,13 @@
                         </el-button>
                     </Column>
                     <Column>
-                        <el-button v-if="canReadTemplates" :icon="Download" @click="exportTemplates()" :hidden="!configs?.isTemplateEnabled" class="w-100">
+                        <el-button
+                            v-if="canReadTemplates"
+                            :icon="Download"
+                            @click="exportTemplates()"
+                            :hidden="!configs?.isTemplateEnabled"
+                            class="w-100"
+                        >
                             {{ $t("settings.blocks.export.fields.templates") }}
                         </el-button>
                     </Column>
@@ -269,10 +277,10 @@
     import Block from "./components/block/Block.vue"
     import Row from "./components/block/Row.vue"
     import Column from "./components/block/Column.vue"
-    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-    import { fas } from '@fortawesome/free-solid-svg-icons';
-    import { library } from '@fortawesome/fontawesome-svg-core';
-    
+    import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+    import {fas} from "@fortawesome/free-solid-svg-icons";
+    import {library} from "@fortawesome/fontawesome-svg-core";
+
     library.add(fas);
 
     export const DATE_FORMAT_STORAGE_KEY = "dateFormat";
@@ -350,8 +358,8 @@
             this.pendingSettings.theme = Utils.getTheme();
 
             let scheme = localStorage.getItem("scheme") || "classic";
-            if(scheme === "default") scheme = "classic";
-            this.pendingSettings.chartColor =  scheme
+            if (scheme === "default") scheme = "classic";
+            this.pendingSettings.chartColor = scheme
 
             this.pendingSettings.dateFormat = localStorage.getItem(DATE_FORMAT_STORAGE_KEY) || "llll";
             this.pendingSettings.timezone = localStorage.getItem(TIMEZONE_STORAGE_KEY) || this.$moment.tz.guess();
@@ -379,56 +387,56 @@
                 }
             },
             goToAnotherPage() {
-            // Use Vue Router to navigate to the target page
-            this.$router.push("/pets");
-        },
- 
+                // Use Vue Router to navigate to the target page
+                this.$router.push("/pets");
+            },
+
 
             //create API call method here
 
-            async getCat(){
+            async getCat() {
                 const headers = new Headers({
-                "Content-Type": "application/json",
-                "x-api-key": "DEMO-API-KEY"
+                    "Content-Type": "application/json",
+                    "x-api-key": "DEMO-API-KEY"
                 });
 
                 var requestOptions = {
-                method: 'GET',
-                headers: headers,
-                redirect: 'follow'
+                    method: "GET",
+                    headers: headers,
+                    redirect: "follow"
                 };
-                try{
+                try {
                     const response = await fetch("https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=1", requestOptions)
                     const data = await response.json();
                     const cat = data[0];
                     console.log(cat.url);
                     console.log("test'");
                     this.imgUrl = cat.url;
-                    
+
                 }
-                catch(error){
-                    console.error('Error fetching cat data:', error);
+                catch (error) {
+                    console.error("Error fetching cat data:", error);
                 }
             },
-            async getDog(){
+            async getDog() {
                 const headers = new Headers({
-                "Content-Type": "application/json",
-                "x-api-key": "DEMO-API-KEY"
+                    "Content-Type": "application/json",
+                    "x-api-key": "DEMO-API-KEY"
                 });
 
                 var requestOptions = {
-                method: 'GET',
-                headers: headers,
-                redirect: 'follow'
+                    method: "GET",
+                    headers: headers,
+                    redirect: "follow"
                 };
-                try{
+                try {
                     const response = await fetch("https://api.thedogapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=1", requestOptions)
                     const data = await response.json();
                     const dog = data[0];
                     this.imgUrl = dog.url;
                 }
-                catch(error){
-                    console.error('Error fetching cat data:', error);
+                catch (error) {
+                    console.error("Error fetching cat data:", error);
                 }
             },
 
@@ -497,7 +505,7 @@
             onExecuteFlowBehaviourChange(value) {
                 this.pendingSettings.executeFlowBehaviour = value;
             },
-            onExecuteDefaultTabChange(value){
+            onExecuteDefaultTabChange(value) {
                 this.pendingSettings.executeDefaultTab = value;
             },
             onLogsFontSize(value) {
@@ -505,12 +513,12 @@
             },
             async saveAllSettings() {
                 let refreshWhenSaved = false
-                for (const key in this.pendingSettings){
+                for (const key in this.pendingSettings) {
                     const storedKey = this.settingsKeyMapping[key]
-                    switch(key) {
+                    switch (key) {
                     case "defaultNamespace":
                     case "defaultLogLevel":
-                        if(this.pendingSettings[key])
+                        if (this.pendingSettings[key])
                             localStorage.setItem(key, this.pendingSettings[key])
                         else
                             localStorage.removeItem(key)
@@ -537,7 +545,7 @@
                         break
                     case "lang":
                     {
-                        if(this.pendingSettings[key]) {
+                        if (this.pendingSettings[key]) {
                             localStorage.setItem(key, this.pendingSettings[key])
                         }
 
@@ -557,16 +565,16 @@
                     }
                     default:
                         if (storedKey) {
-                            if(this.pendingSettings[key])
+                            if (this.pendingSettings[key])
                                 localStorage.setItem(storedKey, this.pendingSettings[key])
                         }
                         else {
-                            if(this.pendingSettings[key])
+                            if (this.pendingSettings[key])
                                 localStorage.setItem(key, this.pendingSettings[key])
                         }
                     }
                 }
-                if(refreshWhenSaved){
+                if (refreshWhenSaved) {
                     document.location.assign(document.location.href)
                 }
                 this.$toast().saved(this.$t("settings.label"), undefined, {multiple: true});
@@ -608,7 +616,7 @@
                 ]
             },
             dateFormats() {
-                return  [
+                return [
                     {value: "YYYY-MM-DDTHH:mm:ssZ"},
                     {value: "YYYY-MM-DD hh:mm:ss A"},
                     {value: "DD/MM/YYYY HH:mm:ss"},
@@ -625,7 +633,7 @@
                 return this.user && this.user.isAllowed(permission.TEMPLATE, action.READ);
             },
             logDisplayOptions() {
-                return  [
+                return [
                     {value: logDisplayTypes.ERROR, text: this.$t("expand error")},
                     {value: logDisplayTypes.ALL, text: this.$t("expand all")},
                     {value: logDisplayTypes.HIDDEN, text: this.$t("collapse all")}
@@ -663,19 +671,19 @@
             executeDefaultTabOptions() {
                 return [
                     {
-                        value : "overview",
+                        value: "overview",
                         label: this.$t("overview")
                     },
                     {
-                        value : "gantt",
+                        value: "gantt",
                         label: this.$t("gantt")
                     },
                     {
-                        value : "logs",
+                        value: "logs",
                         label: this.$t("logs")
                     },
                     {
-                        value : "topology",
+                        value: "topology",
                         label: this.$t("topology")
                     },
                     {
@@ -683,7 +691,7 @@
                         label: this.$t("outputs")
                     },
                     {
-                        value : "metrics",
+                        value: "metrics",
                         label: this.$t("metrics")
                     }
                 ]
@@ -692,21 +700,27 @@
     };
 </script>
 <style>
+.settings-wrapper .el-input-number {
+    max-width: 20vw;
+}
 
-    .settings-wrapper .el-input-number {
-        max-width: 20vw;
+.el-input__count {
+    color: var(--ks-content-primary) !important;
+
+    .el-input__count-inner {
+        background: none !important;
     }
+}
 
-    .el-input__count {
-        color: var(--ks-content-primary) !important;
-
-        .el-input__count-inner {
-            background: none !important;
-        }
-    }
-    .clickable-info {
-  font-size: 20px;  /* Adjust size if needed */
-  color: #000000;   /* Match the color of your info icon */
-  cursor: pointer;  /* Ensure it's clickable */
+.clickable-info {
+    position: absolute;
+    right: 975px;
+    top: 331px;
+    font-size: 21px;
+    /* Adjust size if needed */
+    color: #14181F;
+    /* Match the color of your info icon */
+    cursor: pointer;
+    /* Ensure it's clickable */
 }
 </style>

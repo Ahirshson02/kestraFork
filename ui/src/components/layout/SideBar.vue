@@ -14,7 +14,7 @@
             <el-button @click="collapsed = onToggleCollapse(!collapsed)" class="collapseButton" :size="collapsed ? 'small':undefined">
                 <chevron-right v-if="collapsed" />
                 <chevron-left v-else />
-                <span v-if="!collapsed">COCONUTS</span>
+                <span v-if="!collapsed" />
             </el-button>
             <div class="logo">
                 <router-link :to="{name: 'home'}">
